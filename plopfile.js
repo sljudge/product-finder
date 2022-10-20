@@ -50,7 +50,7 @@ module.exports = (plop) => {
       },
       {
         type: "add",
-        path: "src/components/{{pascalCase name}}/index.ts",
+        path: "src/pages/{{pascalCase name}}/index.ts",
         templateFile: "templates/Index/PascalCase.js.hbs",
       },
     ],
