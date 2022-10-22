@@ -14,6 +14,9 @@ module.exports = {
           400: "#063156",
         },
       },
+      padding: {
+        page: "2.5rem",
+      },
     },
   },
   plugins: [require("tailwind-scrollbar")({ nocompatible: true })],
