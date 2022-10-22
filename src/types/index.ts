@@ -61,5 +61,20 @@ export const REGIONS: (ParentRegion | { [key in ParentRegion]?: Country[] })[] =
 /**
  * Product Style
  */
-export const PRODUCT_STYLES = ["index", "active"];
+export const PRODUCT_STYLES = ["index", "active"] as const;
 export type ProductStyle = typeof PRODUCT_STYLES[number];
+
+/**
+ * Product Item
+ */
+export type ProductItem = {
+  name: string;
+  primary_ticker: string;
+  income_treatment: string;
+  share_class_currency: string;
+  isin: string;
+  strategy: Strategy;
+  asset_class: AssetClass;
+  region: Region;
+  style: ProductStyle;
+};
