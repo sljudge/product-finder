@@ -3,8 +3,8 @@ import React from "react";
 interface Props {
   isChecked: boolean;
   label: string;
-  value: string | number;
-  onChange(val: string | number): void;
+  value: string | number | string[];
+  onChange(val: string | number | string[]): void;
 }
 
 const Checkbox: React.FC<Props> = ({ isChecked, label, value, onChange }) => {
