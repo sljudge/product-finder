@@ -20,6 +20,7 @@
       "@assets": ["assets/*"],
       "@components": ["components/*"],
       "@config": ["config/*"],
+      "@data": ["data/*"],
       "@hooks": ["hooks/*"],
       "@pages": ["pages/*"],
       "@types": ["types/*"],
