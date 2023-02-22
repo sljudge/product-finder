@@ -13,6 +13,7 @@ export default class Banner {
       header: data.header || "",
       subHeader: data.subHeader || "",
       imgUrl:
+        data.imgUrl ||
         "https://www.3minutosdearte.com/wp-content/uploads/2021/12/C6-Paul-Klee-and-the-Essaence-mini.jpg",
       white: data.white || false,
     };
