@@ -47,7 +47,7 @@ export default class Banner {
   createColumn(parent, data) {
     const column = document.createElement("div");
     column.className +=
-      "flex flex-col min-h-24 max-w-2/3 flex-1 relative column pl-4";
+      "flex flex-col min-h-24 max-w-2/3 flex-1 relative column mx-4";
     this.renderColumn(column, data);
     parent.appendChild(column);
   }

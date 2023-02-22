@@ -3,13 +3,13 @@
 @tailwind utilities;
 
 .ce-block {
-  @apply max-w-full bg-gray-50;
+  @apply max-w-full bg-gray-100;
 }
 .ce-block__content {
   @apply max-w-full;
 }
 .container {
-  @apply md:max-w-3xl lg:max-w-4xl xl:max-w-5xl bg-white m-auto;
+  @apply md:max-w-3xl lg:max-w-4xl xl:max-w-5xl bg-white m-auto shadow-xl;
 }
 .cdx-block,
 .ce-header {
