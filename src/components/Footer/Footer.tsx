@@ -15,16 +15,16 @@ const Footer: React.FC = () => {
         aliquip.
       </p>
       <div>
-        <a href="#" target="_blank" className="mr-4">
+        <a href="/terms" target="_blank" className="mr-4">
           Terms of Use
         </a>
-        <a href="#" target="_blank" className="mr-4">
+        <a href="/legal" target="_blank" className="mr-4">
           Legal Terms
         </a>
-        <a href="#" target="_blank" className="mr-4">
+        <a href="/privacy" target="_blank" className="mr-4">
           Privacy Policy
         </a>
-        <a href="#" target="_blank" className="mr-4">
+        <a href="/cookies" target="_blank" className="mr-4">
           Cookie Policy
         </a>
       </div>

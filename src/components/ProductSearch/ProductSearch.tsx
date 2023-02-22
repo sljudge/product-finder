@@ -11,7 +11,6 @@ import {
   EQUITIES,
   FIXED_INCOMES,
   PRODUCT_STYLES,
-  Strategy,
 } from "types";
 
 interface Props {
@@ -27,20 +26,20 @@ const ProductSearch: React.FC<Props> = ({ onFilterByKey, onFilterByName }) => {
     onFilterByName(val);
   };
 
-  const handleStrategyFilterChange = (vals: string[]) => {
-    onFilterByKey("strategy", vals as FilterVal[]);
+  const handleStrategyFilterChange = (vals: FilterVal[]) => {
+    onFilterByKey("strategy", vals);
   };
 
-  const handleAssetsFilterChange = (vals: string[]) => {
-    onFilterByKey("asset_class", vals as FilterVal[]);
+  const handleAssetsFilterChange = (vals: FilterVal[]) => {
+    onFilterByKey("asset_class", vals);
   };
 
-  const handleRegionFilterChange = (vals: string[]) => {
-    onFilterByKey("region", vals as FilterVal[]);
+  const handleRegionFilterChange = (vals: FilterVal[]) => {
+    onFilterByKey("region", vals);
   };
 
-  const handleStyleFilterChange = (vals: string[]) => {
-    onFilterByKey("style", vals as FilterVal[]);
+  const handleStyleFilterChange = (vals: FilterVal[]) => {
+    onFilterByKey("style", vals);
   };
 
   return (
