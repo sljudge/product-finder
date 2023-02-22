@@ -1,3 +1,86 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.ce-block {
+  @apply max-w-full bg-gray-50;
+}
+.ce-block__content {
+  @apply max-w-full;
+}
+.container {
+  @apply md:max-w-3xl lg:max-w-4xl xl:max-w-5xl bg-white m-auto;
+}
+.cdx-block,
+.ce-header {
+  @apply md:max-w-3xl lg:max-w-4xl xl:max-w-5xl   bg-white;
+  margin: auto !important;
+}
+h1.ce-header {
+  @apply text-2xl;
+}
+h2.ce-header {
+  @apply text-xl;
+}
+.ce-paragraph {
+  @apply px-8;
+}
+.ce-header {
+  padding: 0.5rem 2rem !important;
+}
+@media (max-width: 800px) {
+  .ce-header,
+  .ce-paragraph,
+  .cdx-list {
+    padding: 0.5rem 4rem !important;
+  }
+}
+.ce-toolbar {
+  @apply z-50;
+}
+.ce-toolbar__content {
+  @apply max-w-screen-xl;
+}
+
+.ce-toolbar__actions {
+  @apply flex-col;
+  right: calc(100% - 40px);
+}
+.ce-toolbar__settings-btn {
+  @apply bg-gray-800 hover:bg-gray-600 p-2 rounded-lg opacity-95 -mr-24 h-8 w-8;
+}
+.ce-toolbar__settings-btn svg {
+  @apply text-white;
+}
+.ce-toolbar__settings-btn:hover {
+  @apply opacity-100;
+}
+
+.ce-toolbar__plus {
+  @apply h-8 w-8 p-2 bg-gray-300 rounded-full -mr-4 lg:-mr-8 ml-1 mb-2 hover:bg-green-300;
+}
+
+.image-handler-icon {
+  font-style: normal !important;
+  @apply text-gray-800;
+  @apply text-3xl;
+}
+.img-placeholder {
+  @apply w-14;
+  @apply h-14;
+  @apply p-4;
+  @apply rounded-lg;
+  @apply flex;
+  @apply justify-center;
+  @apply items-center;
+}
+.placeholder {
+  @apply bg-placeholder border border-gray-100;
+}
+.header {
+  @apply text-2xl font-bold;
+}
+
+.codex-editor__redactor {
+  padding-bottom: 0 !important;
+}

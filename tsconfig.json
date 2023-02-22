@@ -21,6 +21,7 @@
       "@components": ["components/*"],
       "@config": ["config/*"],
       "@data": ["data/*"],
+      "@editor": ["editor/*"],
       "@hooks": ["hooks/*"],
       "@pages": ["pages/*"],
       "@types": ["types/*"],
