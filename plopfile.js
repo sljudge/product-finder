@@ -139,4 +139,22 @@ module.exports = (plop) => {
       },
     ],
   });
+  //SLICE
+  plop.setGenerator("slice", {
+    description: "Create a slice",
+    prompts: [
+      {
+        type: "input",
+        name: "name",
+        message: "What is your slice name?",
+      },
+    ],
+    actions: [
+      {
+        type: "add",
+        path: "src/config/{{camelCase name}}Slice.tsx",
+        templateFile: "templates/Slice/Slice.js.hbs",
+      },
+    ],
+  });
 };
