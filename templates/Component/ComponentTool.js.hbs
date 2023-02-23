@@ -11,7 +11,7 @@ export default class {{pascalCase name}}Tool {
 
   constructor({ data, config, api }) {
     this.data = {
-     {{#each parts}}
+    {{#each parts}}
         {{camelCase this}}: "",
     {{/each}}
     };
@@ -25,7 +25,7 @@ export default class {{pascalCase name}}Tool {
     create{{pascalCase this}}(parent) {
         const {{camelCase this}} = document.createElement("div");
         {{camelCase this}}.id = "{{this}}";
-        {{camelCase this}}.className += this.styles["{{this}}"]
+        handleText({{camelCase this}}, "{{this}}", this.styles["{{camelCase this}}"])
         parent.appendChild({{camelCase this}});
     }
 {{/each}}
@@ -34,7 +34,7 @@ export default class {{pascalCase name}}Tool {
     this.wrapper.className += ` ${this.styles.container}`
 
     {{#each parts}}
-        this.create{{pascalCase this}}(this.wrapper)
+    this.create{{pascalCase this}}(this.wrapper)
     {{/each}}
 
     return this.wrapper;
@@ -54,11 +54,13 @@ export default class {{pascalCase name}}Tool {
 
   save(blockContent) {
     {{#each parts}}
-        const {{camelCase this}} = blockContent.querySelector("#{{this}}");
+    const {{camelCase this}} = blockContent.querySelector("#{{this}}");
     {{/each}}
 
     return {
-      
+    {{#each parts}}
+        {{camelCase this}}: saveText({{camelCase this}}),
+    {{/each}}
     };
   }
 }

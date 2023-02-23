@@ -24,28 +24,28 @@ export default class TestTool {
     createHeader(parent) {
         const header = document.createElement("div");
         header.id = "header";
-        header.className += this.styles["header"]
+        handleText(header, "header", this.styles["header"])
         parent.appendChild(header);
     }
     createColOne(parent) {
         const colOne = document.createElement("div");
         colOne.id = "col-one";
-        colOne.className += this.styles["col-one"]
+        handleText(colOne, "col-one", this.styles["colOne"])
         parent.appendChild(colOne);
     }
     createColTwo(parent) {
         const colTwo = document.createElement("div");
         colTwo.id = "col-two";
-        colTwo.className += this.styles["col-two"]
+        handleText(colTwo, "col-two", this.styles["colTwo"])
         parent.appendChild(colTwo);
     }
 
   render() {
     this.wrapper.className += ` ${this.styles.container}`
 
-        this.createHeader(this.wrapper)
-        this.createColOne(this.wrapper)
-        this.createColTwo(this.wrapper)
+    this.createHeader(this.wrapper)
+    this.createColOne(this.wrapper)
+    this.createColTwo(this.wrapper)
 
     return this.wrapper;
   }
@@ -63,12 +63,14 @@ export default class TestTool {
   }
 
   save(blockContent) {
-        const header = blockContent.querySelector("#header");
-        const colOne = blockContent.querySelector("#col-one");
-        const colTwo = blockContent.querySelector("#col-two");
+    const header = blockContent.querySelector("#header");
+    const colOne = blockContent.querySelector("#col-one");
+    const colTwo = blockContent.querySelector("#col-two");
 
     return {
-      
+        header: saveText(header),
+        colOne: saveText(colOne),
+        colTwo: saveText(colTwo),
     };
   }
 }
