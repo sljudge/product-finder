@@ -29,11 +29,23 @@ export default class Banner {
   }
 
   createHeader(parent) {
-    handleText(parent, this.data.header, this.styles.header, "header");
+    this.header = document.createElement("div");
+    handleText(
+      [parent, this.header],
+      this.data.header,
+      this.styles.header,
+      "header"
+    );
   }
 
   createSubHeader(parent) {
-    handleText(parent, this.data.subHeader, this.styles.subHeader, "subHeader");
+    this.subHeader = document.createElement("div");
+    handleText(
+      [parent, this.subHeader],
+      this.data.subHeader,
+      this.styles.subHeader,
+      "subHeader"
+    );
   }
 
   render() {

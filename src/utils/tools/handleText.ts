@@ -1,12 +1,18 @@
 export default function handleText(
-  parent: HTMLElement,
+  parent: HTMLElement | [HTMLElement, HTMLElement],
   data: string,
   classes: string[] | string,
   id: string
 ) {
-  const container = document.createElement("div");
+  let container: HTMLElement;
+  if (parent instanceof HTMLElement) {
+    container = document.createElement("div");
+    parent.appendChild(container);
+  } else {
+    container = parent[1];
+    parent[0].appendChild(container);
+  }
   container.id = id;
-  parent.appendChild(container);
 
   container.contentEditable = "true";
   container.classList.add("min-w-24");
