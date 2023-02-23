@@ -5,7 +5,7 @@ const timerIcon = '<i class="image-handler-icon fas fa-hourglass-start"></i>';
 export default function handleImages(
   container: HTMLElement,
   imgUrl: string,
-  classes: string[]
+  classes: string[] | string
 ) {
   /**
    * Function to add drag and drop and file input functionality to a div
@@ -19,8 +19,10 @@ export default function handleImages(
   //apply base classes
   // ['relative', 'bg-center', 'bg-contain', 'bg-no-repeat', 'bg-gray-400'].forEach(item => container.classList.add(item))
   //Add optional classes to container
-  if (classes) {
+  if (classes && typeof classes !== "string") {
     classes.forEach((item) => container.classList.add(item));
+  } else if (classes) {
+    container.className += ` ${classes}`;
   }
 
   //IMAGE

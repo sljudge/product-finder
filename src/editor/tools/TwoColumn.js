@@ -1,4 +1,4 @@
-import { handleImages, handleText, saveImage, saveText } from "./helpers";
+import { handleImages, handleText, saveImage, saveText } from "utils/tools";
 
 export default class Banner {
   static get toolbox() {
@@ -46,8 +46,8 @@ export default class Banner {
 
   createColumn(parent, data) {
     const column = document.createElement("div");
-    column.className +=
-      "flex flex-col min-h-24 max-w-2/3 flex-1 relative column mx-4";
+    column.className += "flex flex-col min-h-24 flex-1 relative column mx-4";
+    column.style.minWidth = "33%";
     this.renderColumn(column, data);
     parent.appendChild(column);
   }
@@ -96,8 +96,14 @@ export default class Banner {
         handleImages(domElem, elem.imgSrc, [
           "bg-cover",
           "bg-no-repeat",
-          "min-h-80",
+          "bg-center",
+          "min-h-40",
+          "lg:min-h-80",
           "two-col-image",
+          "w-full",
+          "max-w-screen",
+          "md:max-w-sm",
+          "lg:max-w-md",
         ]);
       }
     });
@@ -109,7 +115,7 @@ export default class Banner {
     this.createHeader(this.wrapper);
 
     this.columnContainer = document.createElement("div");
-    this.columnContainer.className += "flex";
+    this.columnContainer.className += "flex flex-col md:flex-row";
     this.wrapper.appendChild(this.columnContainer);
 
     this.createColumn(this.columnContainer, this.data.firstColumn.data);

@@ -1,5 +1,5 @@
 @tailwind base;
-@tailwind components;
+/* @tailwind components; */
 @tailwind utilities;
 
 .ce-block {
@@ -13,7 +13,7 @@
 }
 .cdx-block,
 .ce-header {
-  @apply md:max-w-3xl lg:max-w-4xl xl:max-w-5xl   bg-white;
+  @apply md:max-w-3xl lg:max-w-4xl xl:max-w-5xl bg-white;
   margin: auto !important;
 }
 h1.ce-header {
@@ -32,7 +32,7 @@ h2.ce-header {
   .ce-header,
   .ce-paragraph,
   .cdx-list {
-    padding: 0.5rem 4rem !important;
+    padding: 0.5rem 2rem !important;
   }
 }
 .ce-toolbar {
@@ -44,10 +44,20 @@ h2.ce-header {
 
 .ce-toolbar__actions {
   @apply flex-col;
-  right: calc(100% - 40px);
+  left: -7px;
+}
+@media (min-width: 1000px) {
+  .ce-toolbar__actions {
+    flex-direction: row;
+  }
+}
+@media (min-width: 850px) {
+  .ce-toolbar__actions {
+    left: 40px;
+  }
 }
 .ce-toolbar__settings-btn {
-  @apply bg-gray-800 hover:bg-gray-600 p-2 rounded-lg opacity-95 -mr-24 h-8 w-8;
+  @apply bg-elemDark hover:bg-gray-600 rounded-lg opacity-95 outline outline-gray-600 hover:outline-gray-800 -mr-24 lg:-mr-10 w-6 h-6 lg:h-8 lg:w-8 p-1 lg:p-2;
 }
 .ce-toolbar__settings-btn svg {
   @apply text-white;
@@ -57,7 +67,7 @@ h2.ce-header {
 }
 
 .ce-toolbar__plus {
-  @apply h-8 w-8 p-2 bg-gray-300 rounded-full -mr-4 lg:-mr-8 ml-1 mb-2 hover:bg-green-300;
+  @apply w-6 h-6 lg:h-8 lg:w-8 p-1 lg:p-2 bg-elemLight outline outline-green-100 rounded-full -mr-4 ml-1 lg:mr-3 lg:-ml-4 mb-3 hover:bg-green-300;
 }
 
 .image-handler-icon {

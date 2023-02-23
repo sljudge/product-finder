@@ -1,7 +1,7 @@
 export default function handleText(
   container: HTMLElement,
   data: string,
-  classes: string[],
+  classes: string[] | string,
   withLinebreaks: boolean = false
 ) {
   container.contentEditable = "true";
@@ -12,8 +12,10 @@ export default function handleText(
     container.classList.add("placeholder");
   }
 
-  if (classes) {
+  if (classes && typeof classes !== "string") {
     classes.forEach((className) => container.classList.add(className));
+  } else if (classes) {
+    container.className += ` ${classes}`;
   }
 
   container.oninput = () => {

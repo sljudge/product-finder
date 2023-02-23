@@ -14,7 +14,8 @@ import Delimiter from "@editorjs/delimiter";
 import InlineCode from "@editorjs/inline-code";
 import SimpleImage from "@editorjs/simple-image";
 
-import Banner from "./Banner";
+import { BannerTool } from "components/Banner";
+import { TestTool } from "components/Test";
 import TwoColumn from "./TwoColumn";
 
 const EDITOR_JS_TOOLS = {
@@ -38,11 +39,15 @@ const EDITOR_JS_TOOLS = {
   simpleImage: SimpleImage,
   // *********************
   banner: {
-    class: Banner,
+    class: BannerTool,
     inlineToolbar: false,
   },
   twoColumn: {
     class: TwoColumn,
+    inlineToolbar: true,
+  },
+  Test: {
+    class: TestTool,
     inlineToolbar: true,
   },
 };

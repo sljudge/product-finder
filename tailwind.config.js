@@ -9,6 +9,7 @@ module.exports = {
       backgroundColor: {
         elemWhite: "rgba(256,256,256,0.9)",
         elemDark: "rgba(30,30,30,0.8)",
+        elemLight: "rgba(256, 256, 256, 0.25)",
         elem: "rgba(30,30,30,0.2)",
         placeholder: "rgba(30,30,30,0.075)",
       },
@@ -23,7 +24,16 @@ module.exports = {
       padding: {
         page: "2.5rem",
       },
+      minWidth: {
+        24: "6rem",
+      },
       minHeight: {
+        20: "5rem",
+        30: "7.5rem",
+        40: "10rem",
+        50: "12.5rem",
+        60: "15rem",
+        70: "17.5rem",
         80: "20rem",
       },
       maxWidth: {

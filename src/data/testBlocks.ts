@@ -15,7 +15,7 @@ export default {
       id: "lfrjVj52QC",
       type: "twoColumn",
       data: {
-        header: "Test&nbsp;",
+        header: "Test",
         firstColumn: {
           data: [
             {

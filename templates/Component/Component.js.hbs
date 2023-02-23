@@ -1,12 +1,20 @@
-import React from 'react';
+import React, {useMemo} from 'react';
+import generateStyles from './styles';
 
 interface Props {
-
+  {{#each parts}}
+    {{camelCase this}}: string;
+  {{/each}}
 }
 
-const {{pascalCase name}}:React.FC<Props> = () => {
+const {{pascalCase name}}:React.FC<Props> = ({ {{#each parts}} {{camelCase this}}, {{/each}} }) => {
+  const styles = useMemo(() => generateStyles(), [])
   return (
-    <></>
+    <div className={styles.container}>
+     {{#each parts}}
+        <div className={styles[{{camelCase this}} as keyof typeof styles]}>{ {{camelCase this}} }</div>
+      {{/each}}
+    </div>
   );
 };
 

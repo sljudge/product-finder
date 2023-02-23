@@ -1,0 +1,64 @@
+import { handleImages, handleText, saveImage, saveText } from "utils/tools";
+import generateStyles from "./styles";
+
+export default class {{pascalCase name}}Tool {
+  static get toolbox() {
+    return {
+      title: "{{pascalCase name}}",
+      icon: '<i class="fas fa-image p-1 mx-2 border border-gray-500 bg-white"></i>',
+    };
+  }
+
+  constructor({ data, config, api }) {
+    this.data = {
+     {{#each parts}}
+        {{camelCase this}}: "",
+    {{/each}}
+    };
+    this.styles = generateStyles();
+    this.api = api;
+    this.settings = [];
+    this.wrapper = document.createElement("div");
+  }
+
+{{#each parts}}
+    create{{pascalCase this}}(parent) {
+        const {{camelCase this}} = document.createElement("div");
+        {{camelCase this}}.id = "{{this}}";
+        {{camelCase this}}.className += this.styles["{{this}}"]
+        parent.appendChild({{camelCase this}});
+    }
+{{/each}}
+
+  render() {
+    this.wrapper.className += ` ${this.styles.container}`
+
+    {{#each parts}}
+        this.create{{pascalCase this}}(this.wrapper)
+    {{/each}}
+
+    return this.wrapper;
+  }
+
+  renderSettings() {
+    //
+  }
+
+  _toggleTune(tune) {
+    //
+  }
+
+  _acceptTuneView() {
+   //
+  }
+
+  save(blockContent) {
+    {{#each parts}}
+        const {{camelCase this}} = blockContent.querySelector("#{{this}}");
+    {{/each}}
+
+    return {
+      
+    };
+  }
+}

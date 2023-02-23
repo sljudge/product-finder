@@ -1,4 +1,5 @@
-import { handleImages, handleText, saveImage, saveText } from "./helpers";
+import { handleImages, handleText, saveImage, saveText } from "utils/tools";
+import generateStyles from "./styles";
 
 export default class Banner {
   static get toolbox() {
@@ -17,6 +18,7 @@ export default class Banner {
         "https://www.3minutosdearte.com/wp-content/uploads/2021/12/C6-Paul-Klee-and-the-Essaence-mini.jpg",
       white: data.white || false,
     };
+    this.styles = generateStyles(this.data.white);
     this.api = api;
     this.settings = [
       {
@@ -26,46 +28,24 @@ export default class Banner {
     ];
   }
 
-  createText(parent) {
-    const container = document.createElement("div");
-    parent.appendChild(container);
-
+  createHeader(parent) {
     this.header = document.createElement("h1");
-    handleText(this.header, this.data.header, [
-      "mb-2",
-      "p-4",
-      "text-3xl",
-      "font-semibold",
-    ]);
-    if (this.data.white) {
-      this.header.classList.add("text-white");
-    }
-    container.appendChild(this.header);
+    handleText(this.header, this.data.header, this.styles.header);
+    parent.appendChild(this.header);
+  }
 
+  createSubHeader(parent) {
     this.subHeader = document.createElement("div");
-    handleText(this.subHeader, this.data.subHeader, ["p-2", "text-xl"]);
-    if (this.data.white) {
-      this.subHeader.classList.add("text-white");
-    }
-    container.appendChild(this.subHeader);
+    handleText(this.subHeader, this.data.subHeader, this.styles.subHeader);
+    parent.appendChild(this.subHeader);
   }
 
   render() {
     this.wrapper = document.createElement("div");
-    this.wrapper.className +=
-      "min-h-132 h-132 bg-gray-400 flex items-center justify-center absolute";
-    this.wrapper.style.maxWidth = "100vw";
-    this.wrapper.style.minHeight = "250px";
+    handleImages(this.wrapper, this.data.imgUrl, this.styles.container);
 
-    handleImages(this.wrapper, this.data.imgUrl, [
-      "relative",
-      "bg-center",
-      "bg-cover",
-      "bg-no-repeat",
-      "bg-gray-400",
-    ]);
-
-    this.createText(this.wrapper);
+    this.createHeader(this.wrapper);
+    this.createSubHeader(this.wrapper);
 
     return this.wrapper;
   }
@@ -132,7 +112,7 @@ export default class Banner {
       header: saveText(header),
       subHeader: saveText(subHeader),
       imgUrl: saveImage(this.wrapper),
-      white: this.data.white,
+      white: !this.data.white,
     };
   }
 }

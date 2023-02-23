@@ -8,6 +8,17 @@ module.exports = (plop) => {
         name: "name",
         message: "What is your component name?",
       },
+      {
+        type: "list",
+        name: "parts",
+        message: "What parts will you have?",
+        choices: [
+          {
+            name: "header col-one col-two",
+            value: ["header", "col-one", "col-two"],
+          },
+        ],
+      },
     ],
     actions: [
       {
@@ -23,7 +34,17 @@ module.exports = (plop) => {
       {
         type: "add",
         path: "src/components/{{pascalCase name}}/index.ts",
-        templateFile: "templates/Index/PascalCase.js.hbs",
+        templateFile: "templates/Index/PascalCaseWithTool.js.hbs",
+      },
+      {
+        type: "add",
+        path: "src/components/{{pascalCase name}}/styles.ts",
+        templateFile: "templates/Component/ComponentStyles.js.hbs",
+      },
+      {
+        type: "add",
+        path: "src/components/{{pascalCase name}}/tool.js",
+        templateFile: "templates/Component/ComponentTool.js.hbs",
       },
     ],
   });

@@ -1,8 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Provider } from "react-redux";
+
+import { store } from "config/store";
 import "./index.css";
 import App from "./App";
-import ReactEditor from "editor/ReactEditor";
+import ReactEditor from "./editor";
 
 import reportWebVitals from "./reportWebVitals";
 
@@ -11,7 +15,12 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   // <React.StrictMode>
-  <ReactEditor />
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<App />} />
+      <Route path="/editor" element={<ReactEditor />} />
+    </Routes>
+  </BrowserRouter>
   // </React.StrictMode>
 );
 
