@@ -20,7 +20,7 @@ export default function handleImages(
   // ['relative', 'bg-center', 'bg-contain', 'bg-no-repeat', 'bg-gray-400'].forEach(item => container.classList.add(item))
   //Add optional classes to container
   if (classes && typeof classes !== "string") {
-    classes.forEach((item) => container.classList.add(item));
+    container.classList.add(...classes);
   } else if (classes) {
     container.className += ` ${classes}`;
   }

@@ -1,9 +1,13 @@
 export default function handleText(
-  container: HTMLElement,
+  parent: HTMLElement,
   data: string,
   classes: string[] | string,
-  withLinebreaks: boolean = false
+  id: string
 ) {
+  const container = document.createElement("div");
+  container.id = id;
+  parent.appendChild(container);
+
   container.contentEditable = "true";
   container.classList.add("min-w-24");
   container.innerText = data || "";
@@ -13,7 +17,7 @@ export default function handleText(
   }
 
   if (classes && typeof classes !== "string") {
-    classes.forEach((className) => container.classList.add(className));
+    container.classList.add(...classes);
   } else if (classes) {
     container.className += ` ${classes}`;
   }

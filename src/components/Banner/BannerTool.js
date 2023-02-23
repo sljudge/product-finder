@@ -29,15 +29,11 @@ export default class Banner {
   }
 
   createHeader(parent) {
-    this.header = document.createElement("h1");
-    handleText(this.header, this.data.header, this.styles.header);
-    parent.appendChild(this.header);
+    handleText(parent, this.data.header, this.styles.header, "header");
   }
 
   createSubHeader(parent) {
-    this.subHeader = document.createElement("div");
-    handleText(this.subHeader, this.data.subHeader, this.styles.subHeader);
-    parent.appendChild(this.subHeader);
+    handleText(parent, this.data.subHeader, this.styles.subHeader, "subHeader");
   }
 
   render() {
@@ -105,8 +101,8 @@ export default class Banner {
   }
 
   save(blockContent) {
-    const header = blockContent.querySelector(".header");
-    const subHeader = blockContent.querySelector(".subHeader");
+    const header = blockContent.querySelector("#header");
+    const subHeader = blockContent.querySelector("#subHeader");
 
     return {
       header: saveText(header),
