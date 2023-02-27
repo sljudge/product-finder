@@ -16,7 +16,8 @@ import SimpleImage from "@editorjs/simple-image";
 
 import { BannerTool } from "components/Banner";
 import { TestTool } from "components/Test";
-import TwoColumn from "./TwoColumn";
+import { TwoColumnTool } from "components/TwoColumn";
+// import TwoColumn from "./TwoColumn";
 
 const EDITOR_JS_TOOLS = {
   embed: Embed,
@@ -43,10 +44,10 @@ const EDITOR_JS_TOOLS = {
     inlineToolbar: false,
   },
   twoColumn: {
-    class: TwoColumn,
+    class: TwoColumnTool,
     inlineToolbar: true,
   },
-  Test: {
+  test: {
     class: TestTool,
     inlineToolbar: true,
   },

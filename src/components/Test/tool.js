@@ -22,22 +22,13 @@ export default class TestTool {
   }
 
     createHeader(parent) {
-        const header = document.createElement("div");
-        header.id = "header";
-        handleText(header, "header", this.styles["header"])
-        parent.appendChild(header);
+        handleText(parent, this.data.header, this.styles["header"], "header");
     }
     createColOne(parent) {
-        const colOne = document.createElement("div");
-        colOne.id = "col-one";
-        handleText(colOne, "col-one", this.styles["colOne"])
-        parent.appendChild(colOne);
+        handleText(parent, this.data.colOne, this.styles["colOne"], "col-one");
     }
     createColTwo(parent) {
-        const colTwo = document.createElement("div");
-        colTwo.id = "col-two";
-        handleText(colTwo, "col-two", this.styles["colTwo"])
-        parent.appendChild(colTwo);
+        handleText(parent, this.data.colTwo, this.styles["colTwo"], "col-two");
     }
 
   render() {
@@ -50,18 +41,36 @@ export default class TestTool {
     return this.wrapper;
   }
 
-  renderSettings() {
-    //
+   renderSettings() {
+    const wrapper = document.createElement("div");
+    this.settings.forEach((tune) => {
+      let button = document.createElement("div");
+
+      button.classList.add(this.api.styles.settingsButton);
+      button.classList.toggle(
+        this.api.styles.settingsButtonActive,
+        this.data[tune.name]
+      );
+      button.innerHTML = tune.icon;
+      wrapper.appendChild(button);
+
+      button.addEventListener("click", () => {
+        this._toggleTune(tune.name);
+        button.classList.toggle(this.api.styles.settingsButtonActive);
+      });
+    });
+    return wrapper;
   }
 
   _toggleTune(tune) {
-    //
+    this.data[tune] = !this.data[tune];
+    this._acceptTuneView();
   }
 
   _acceptTuneView() {
-   //
+    this.settings.forEach((tune) => {});
   }
-
+  
   save(blockContent) {
     const header = blockContent.querySelector("#header");
     const colOne = blockContent.querySelector("#col-one");

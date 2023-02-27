@@ -5,7 +5,8 @@ const timerIcon = '<i class="image-handler-icon fas fa-hourglass-start"></i>';
 export default function handleImages(
   container: HTMLElement,
   imgUrl: string,
-  classes: string[] | string
+  classes: string[] | string,
+  id: string
 ) {
   /**
    * Function to add drag and drop and file input functionality to a div
@@ -14,6 +15,8 @@ export default function handleImages(
    * @argument imgUrl - url to be added to div
    * optional @argument classes -  array of classes to add to container. Defaults to background: contain
    */
+
+  container.id = id;
 
   //OPTIONS
   //apply base classes
@@ -108,7 +111,7 @@ export default function handleImages(
     container.addEventListener(eventName, highlight, false)
   );
   //unhighlight on drag leave
-  function unhighlight(e) {
+  function unhighlight(e: DragEvent) {
     container.classList.remove("border-8");
     container.classList.remove("border-blue-500");
     container.children.forEach((child) => {

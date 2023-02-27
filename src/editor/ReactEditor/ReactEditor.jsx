@@ -17,6 +17,7 @@ const ReactEditor = () => {
   const handleSave = React.useCallback(async () => {
     const savedData = await editorCore.current.save();
     setDataOutput(savedData);
+    localStorage.setItem("editorjs-data", JSON.stringify(savedData));
   }, []);
 
   return (
@@ -24,7 +25,9 @@ const ReactEditor = () => {
       <ReactEditorJS
         tools={EDITOR_JS_TOOLS}
         onInitialize={(core) => handleInitialize(core)}
-        defaultValue={BLOCKS}
+        defaultValue={
+          JSON.parse(localStorage.getItem("editorjs-data")) || BLOCKS
+        }
       />
       <div className="bg-gray-50 flex justify-center py-12">
         <button

@@ -53,7 +53,7 @@ h2.ce-header {
 }
 @media (min-width: 850px) {
   .ce-toolbar__actions {
-    left: 40px;
+    left: 25px;
   }
 }
 .ce-toolbar__settings-btn {

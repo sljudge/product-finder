@@ -35,4 +35,7 @@ export default function handleText(
       container.classList.add("placeholder");
     }
   };
+  /**
+   * handleEnterPress
+   */
 }

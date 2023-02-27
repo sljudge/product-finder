@@ -4,7 +4,7 @@ import generateStyles from "./styles";
 export default class {{pascalCase name}}Tool {
   static get toolbox() {
     return {
-      title: "{{pascalCase name}}",
+      title: "{{name}}",
       icon: '<i class="fas fa-image p-1 mx-2 border border-gray-500 bg-white"></i>',
     };
   }
@@ -23,7 +23,7 @@ export default class {{pascalCase name}}Tool {
 
 {{#each parts}}
     create{{pascalCase this}}(parent) {
-        handleText(parent, "{{this}}", this.styles["{{camelCase this}}"], "{{this}}");
+        handleText(parent, this.data.{{camelCase this}}, this.styles["{{camelCase this}}"], "{{this}}");
     }
 {{/each}}
 
@@ -37,18 +37,36 @@ export default class {{pascalCase name}}Tool {
     return this.wrapper;
   }
 
-  renderSettings() {
-    //
+   renderSettings() {
+    const wrapper = document.createElement("div");
+    this.settings.forEach((tune) => {
+      let button = document.createElement("div");
+
+      button.classList.add(this.api.styles.settingsButton);
+      button.classList.toggle(
+        this.api.styles.settingsButtonActive,
+        this.data[tune.name]
+      );
+      button.innerHTML = tune.icon;
+      wrapper.appendChild(button);
+
+      button.addEventListener("click", () => {
+        this._toggleTune(tune.name);
+        button.classList.toggle(this.api.styles.settingsButtonActive);
+      });
+    });
+    return wrapper;
   }
 
   _toggleTune(tune) {
-    //
+    this.data[tune] = !this.data[tune];
+    this._acceptTuneView();
   }
 
   _acceptTuneView() {
-   //
+    this.settings.forEach((tune) => {});
   }
-
+  
   save(blockContent) {
     {{#each parts}}
     const {{camelCase this}} = blockContent.querySelector("#{{this}}");

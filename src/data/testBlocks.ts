@@ -4,8 +4,8 @@ export default {
       id: "7sqeB7enMF",
       type: "banner",
       data: {
-        header: "",
-        subHeader: "",
+        header: "Test",
+        subHeader: "Testing the test",
         imgUrl:
           "https://www.3minutosdearte.com/wp-content/uploads/2021/12/C6-Paul-Klee-and-the-Essaence-mini.jpg",
         white: true,

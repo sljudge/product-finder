@@ -120,7 +120,7 @@ export default class Banner {
       header: saveText(header),
       subHeader: saveText(subHeader),
       imgUrl: saveImage(this.wrapper),
-      white: !this.data.white,
+      white: this.data.white,
     };
   }
 }

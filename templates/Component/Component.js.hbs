@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import React, {useMemo, useCallback} from 'react';
 import generateStyles from './styles';
 
 interface Props {
@@ -9,10 +9,14 @@ interface Props {
 
 const {{pascalCase name}}:React.FC<Props> = ({ {{#each parts}} {{camelCase this}}, {{/each}} }) => {
   const styles = useMemo(() => generateStyles(), [])
+  const createMarkup = useCallback((html:string) => ({__html: html}), []);
   return (
     <div className={styles.container}>
      {{#each parts}}
-        <div className={styles[{{camelCase this}} as keyof typeof styles]}>{ {{camelCase this}} }</div>
+         <div
+          className={ styles.{{camelCase this}} }
+          dangerouslySetInnerHTML={createMarkup({{camelCase this}}) }
+        />
       {{/each}}
     </div>
   );
